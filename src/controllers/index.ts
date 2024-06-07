@@ -106,8 +106,8 @@ export const fetchAllItems = async (
   next: NextFunction
 ) => {
   try {
-    const pageIndex = parseInt(req.query.pageIndex as string, 10);
-    const pageSize = parseInt(req.query.pageSize as string, 10);
+    const pageIndex = parseInt(req.query.pageIndex as string, 10) || 0;
+    const pageSize = parseInt(req.query.pageSize as string, 10) || 5;
 
     const totalCount = await prisma.item.count();
 
